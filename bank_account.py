@@ -1,4 +1,8 @@
 import numbers, itertools
+from datetime import timedelta, datetime
+from timezone import TimeZone
+from collections import namedtuple
+Confirmation = namedtuple('Confirmation', 'account_number transacton_code transaction_id time_utc time')
 
 class Account:
     transaction_counter = itertools.count(100)
