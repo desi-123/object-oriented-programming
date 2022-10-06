@@ -2,7 +2,7 @@ import numbers, itertools
 from datetime import timedelta, datetime
 from timezone import TimeZone
 from collections import namedtuple
-Confirmation = namedtuple('Confirmation', 'account_number transacton_code transaction_id time_utc time')
+Confirmation = namedtuple('Confirmation', 'account_number transaction_code transaction_id time_utc time')
 
 class Account:
     transaction_counter = itertools.count(100)
@@ -142,3 +142,20 @@ class Account:
         conf_code = self.generate_confirmation_code(self._transaction_codes['interest'])
         self._balance += interest
         return conf_code
+
+
+
+
+if '__main__' == __name__:
+    a = Account(132434, 'Alex', 'Eric', timezone=TimeZone('MST', -7, 0), initial_balance=1000)
+    print(a.first_name)
+    print(a.last_name)
+    print(a.account_number)
+    print(a.deposit(100))
+    print(a.balance)
+    print(a.withdraw(20))
+    print(a.balance)
+    Account.set_interset_rate(1.0)
+    print(a.pay_interest())
+    print(a.balance)
+    print(a.withdraw(2000))

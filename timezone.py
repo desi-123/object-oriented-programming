@@ -1,8 +1,5 @@
-from datetime import timedelta, datetime
-from collections import namedtuple
-
-Confirmation = namedtuple('Confirmation', 'account_number transacton_code transaction_id time_utc time')
-
+from datetime import timedelta
+import numbers
 
 class TimeZone:
     def __init__(self, name, offset_hours, offset_minutes):
@@ -46,3 +43,9 @@ class TimeZone:
         return (f"TimeZone(name='{self.name}',"
                 f"offset_hours={self._offset_hours}, "
                 f"offset_minutes={self._offset_minutes}) ")
+
+
+
+if '__main__' == __name__:
+    tz1 = TimeZone('ABC', -2, 15)
+    print(tz1.name)
