@@ -47,5 +47,6 @@ class TimeZone:
 
 
 if '__main__' == __name__:
-    tz1 = TimeZone('ABC', -2, 15)
-    print(tz1.name)
+
+    tz = TimeZone('ABC', -2, 15)
+    print(tz.name)
